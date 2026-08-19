@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileTransferApp - انتقال فایل بی‌سیم</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            color: white;
+        }
+        .hero img {
+            width: 120px; height: 120px;
+            border-radius: 30px;
+            border: 4px solid rgba(255,255,255,0.3);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .hero h1 { font-size: 36px; margin-bottom: 10px; }
+        .hero p { font-size: 18px; opacity: 0.9; max-width: 500px; margin: 0 auto; }
+        .links {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card .icon { font-size: 40px; margin-bottom: 12px; }
+        .card h3 { color: #7C3AED; font-size: 20px; margin-bottom: 8px; }
+        .card p { color: #666; font-size: 14px; margin-bottom: 16px; }
+        .card a {
+            display: inline-block;
+            background: #7C3AED;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .card a:hover { background: #6D28D9; text-decoration: none; }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+        }
+        .footer a { color: rgba(255,255,255,0.8); }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/sarbaz1396/FileTransferApp/main/Resources/Images/app_icon.png" alt="FileTransferApp" onerror="this.style.display='none'">
+        <h1>FileTransferApp</h1>
+        <p>انتقال فایل و پیام بین کامپیوتر و گوشی از طریق Wi-Fi با سرعت بالا و امنیت کامل</p>
+    </div>
+
+    <div class="links">
+        <div class="card">
+            <div class="icon">📘</div>
+            <h3>آموزش استفاده</h3>
+            <p>راهنمای گام به گام نصب، جفت‌شدن و انتقال فایل</p>
+            <a href="guide.html">مشاهده آموزش</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔒</div>
+            <h3>سیاست حریم خصوصی</h3>
+            <p>چگونه از اطلاعات شما محافظت می‌کنیم</p>
+            <a href="privacy.html">مشاهده سیاست</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">💻</div>
+            <h3>گیت‌هاب</h3>
+            <p>کد منبع، دانلود آخرین نسخه و گزارش باگ</p>
+            <a href="https://github.com/sarbaz1396/FileTransferApp">مشاهده Repository</a>
+        </div>
+
+        <div class="card">
+            <div class="icon">⬇️</div>
+            <h3>دانلود اپلیکیشن</h3>
+            <p>آخرین نسخه پایدار برای ویندوز و اندروید</p>
+            <a href="https://github.com/sarbaz1396/FileTransferApp/releases">دانلود</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 FileTransferApp &mdash; <a href="https://github.com/sarbaz1396/FileTransferApp">GitHub</a>
+    </div>
+</body>
+</html>
