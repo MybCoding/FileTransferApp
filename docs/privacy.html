@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ط³غŒط§ط³طھ ط­ط±غŒظ… ط®طµظˆطµغŒ - FileTransferApp</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #7C3AED, #9575CD);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header .subtitle { opacity: 0.85; font-size: 14px; }
+        .content { padding: 35px 40px; }
+        .content h2 {
+            color: #7C3AED;
+            font-size: 20px;
+            margin: 30px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f0e6ff;
+        }
+        .content h2:first-child { margin-top: 0; }
+        .content p, .content ul {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .content ul {
+            padding-right: 25px;
+            list-style: none;
+        }
+        .content ul li::before {
+            content: "â€¢";
+            color: #7C3AED;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+        }
+        .badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        a { color: #7C3AED; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .container { margin: 0; border-radius: 0; }
+            .content { padding: 20px; }
+            .header { padding: 25px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/sarbaz1396/FileTransferApp/main/Resources/Images/app_icon.png" alt="App Icon" onerror="this.style.display='none'">
+            <h1>ط³غŒط§ط³طھ ط­ط±غŒظ… ط®طµظˆطµغŒ</h1>
+            <p class="subtitle">FileTransferApp &mdash; ط¢ط®ط±غŒظ† ط¨ظ‡â€Œط±ظˆط²ط±ط³ط§ظ†غŒ: ظ…ط±ط¯ط§ط¯ غ±غ´غ°غµ (ط¢ع¯ظˆط³طھ غ²غ°غ²غ¶)</p>
+            <span class="badge"> protects your privacy</span>
+        </div>
+
+        <div class="content">
+            <h2>غ±. ظ…ظ‚ط¯ظ…ظ‡</h2>
+            <p>FileTransferApp ط§ظ¾ظ„غŒع©غŒط´ظ†غŒ ط¨ط±ط§غŒ ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ ظˆ ظ¾غŒط§ظ… ط¨غŒظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§ ط¯ط± ط´ط¨ع©ظ‡ ظ…ط­ظ„غŒ (Wi-Fi) ط§ط³طھ. ظ…ط§ ط¨ظ‡ ط­ط±غŒظ… ط®طµظˆطµغŒ ط´ظ…ط§ ط§ظ‡ظ…غŒطھ ظ…غŒâ€Œط¯ظ‡غŒظ… ظˆ ط§غŒظ† ط³غŒط§ط³طھ طھظˆط¶غŒط­ ظ…غŒâ€Œط¯ظ‡ط¯ ع©ظ‡ ع†ع¯ظˆظ†ظ‡ ط¨ط§ ط§ط·ظ„ط§ط¹ط§طھ ط´ظ…ط§ ط±ظپطھط§ط± ظ…غŒâ€Œع©ظ†غŒظ….</p>
+
+            <h2>غ². ط¬ظ…ط¹â€Œط¢ظˆط±غŒ ط§ط·ظ„ط§ط¹ط§طھ</h2>
+            <p>FileTransferApp <strong>ظ‡غŒع†ع¯ظˆظ†ظ‡ ط§ط·ظ„ط§ط¹ط§طھ ط´ط®طµغŒطŒ ط¯ط§ط¯ظ‡ ع©ط§ط±ط¨ط±غŒ غŒط§ ظپط§غŒظ„â€Œظ‡ط§غŒ ط´ظ…ط§ ط±ط§ ط¨ظ‡ ط³ط±ظˆط±ظ‡ط§غŒ ط®ط§ط±ط¬غŒ ط§ط±ط³ط§ظ„ ظ†ظ…غŒâ€Œع©ظ†ط¯.</strong></p>
+            <p>طھظ…ط§ظ…غŒ ط§ظ†طھظ‚ط§ظ„ ط¯ط§ط¯ظ‡â€Œظ‡ط§ ط¨ظ‡â€Œطµظˆط±طھ ظ…ط³طھظ‚غŒظ… ظˆ ظ†ظپط± ط¨ظ‡ ظ†ظپط± ط¨غŒظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§غŒ ط´ظ…ط§ ظˆ ط§ط² ط·ط±غŒظ‚ ط´ط¨ع©ظ‡ ظ…ط­ظ„غŒ (Wi-Fi) ط§ظ†ط¬ط§ظ… ظ…غŒâ€Œط´ظˆط¯.</p>
+
+            <h2>غ³. ط¯ط³طھط±ط³غŒâ€Œظ‡ط§</h2>
+            <p>ط§غŒظ† ط§ظ¾ظ„غŒع©غŒط´ظ† ط§ط² ظ…ط¬ظˆط²ظ‡ط§غŒ ط²غŒط± ط§ط³طھظپط§ط¯ظ‡ ظ…غŒâ€Œع©ظ†ط¯:</p>
+            <ul>
+                <li><strong>ط¯ط³طھط±ط³غŒ ط¨ظ‡ ط§غŒظ†طھط±ظ†طھ:</strong> ط¨ط±ط§غŒ ط¨ط±ظ‚ط±ط§ط±غŒ ط§ط±طھط¨ط§ط· ط¨غŒظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§ ط¯ط± ط´ط¨ع©ظ‡ ظ…ط­ظ„غŒ</li>
+                <li><strong>ط¯ط³طھط±ط³غŒ ط¨ظ‡ ظˆط¶ط¹غŒطھ ط´ط¨ع©ظ‡ ظˆ Wi-Fi:</strong> ط¨ط±ط§غŒ ط´ظ†ط§ط³ط§غŒغŒ ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§غŒ ظ…ظˆط¬ظˆط¯ ط¯ط± ط´ط¨ع©ظ‡</li>
+                <li><strong>ط°ط®غŒط±ظ‡ ظپط§غŒظ„â€Œظ‡ط§:</strong> ط¨ط§ ط§ط³طھظپط§ط¯ظ‡ ط§ط² Storage Access Framework ط§ظ†ط¯ط±ظˆغŒط¯ ظˆ ط¨ط¯ظˆظ† ظ†غŒط§ط² ط¨ظ‡ ظ…ط¬ظˆط²ظ‡ط§غŒ ط§ط¶ط§ظپغŒ</li>
+                <li><strong>ط§ط¹ظ„ط§ظ†â€Œظ‡ط§:</strong> ط¨ط±ط§غŒ ط§ط·ظ„ط§ط¹â€Œط±ط³ط§ظ†غŒ ظˆط¶ط¹غŒطھ ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„</li>
+            </ul>
+            <p>ط§غŒظ† ط§ظ¾ظ„غŒع©غŒط´ظ† ط¨ظ‡ <strong>ط¯ظˆط±ط¨غŒظ†طŒ ظ…غŒع©ط±ظˆظپظˆظ†طŒ ظ…ط®ط§ط·ط¨غŒظ† غŒط§ ظ…ظˆظ‚ط¹غŒطھ ظ…ع©ط§ظ†غŒ</strong> ط´ظ…ط§ ط¯ط³طھط±ط³غŒ ظ†ط¯ط§ط±ط¯.</p>
+
+            <h2>غ´. ط°ط®غŒط±ظ‡â€Œط³ط§ط²غŒ ط¯ط§ط¯ظ‡</h2>
+            <p>طھظ…ط§ظ…غŒ ظپط§غŒظ„â€Œظ‡ط§غŒ ط§ظ†طھظ‚ط§ظ„â€ŒغŒط§ظپطھظ‡ ظپظ‚ط· ط¯ط± ط¯ط³طھع¯ط§ظ‡ ط´ظ…ط§ ط°ط®غŒط±ظ‡ ظ…غŒâ€Œط´ظˆظ†ط¯. ظ‡غŒع† ظپط§غŒظ„ غŒط§ ط§ط·ظ„ط§ط¹ط§طھغŒ ط±ظˆغŒ ط³ط±ظˆط±ظ‡ط§غŒ ظ…ط§ ط°ط®غŒط±ظ‡ ظ†ظ…غŒâ€Œط´ظˆط¯.</p>
+            <p>طھظ†ظ‡ط§ ط§ط·ظ„ط§ط¹ط§طھ ط°ط®غŒط±ظ‡â€Œط´ط¯ظ‡ ط¯ط± ط¯ط³طھع¯ط§ظ‡ ط´ط§ظ…ظ„ ظ…ظˆط§ط±ط¯ ط²غŒط± ط§ط³طھ:</p>
+            <ul>
+                <li>طھظ†ط¸غŒظ…ط§طھ ط¬ظپطھâ€Œط´ط¯ظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§ (ط¨ظ‡â€Œطµظˆط±طھ ظ…ط­ظ„غŒ)</li>
+                <li>ظ…ط³غŒط± ط§ظ†طھط®ط§ط¨â€Œط´ط¯ظ‡ ط¨ط±ط§غŒ ط°ط®غŒط±ظ‡ ظپط§غŒظ„â€Œظ‡ط§</li>
+                <li>طھظ†ط¸غŒظ…ط§طھ ظ¾غŒط´â€Œظپط±ط¶ ط§ظ¾ظ„غŒع©غŒط´ظ†</li>
+            </ul>
+
+            <h2>غµ. ط§ظ…ظ†غŒطھ ط§ظ†طھظ‚ط§ظ„</h2>
+            <p>طھظ…ط§ظ…غŒ ط§ظ†طھظ‚ط§ظ„ ط¯ط§ط¯ظ‡â€Œظ‡ط§ ط¨ط§ ط§ط³طھظپط§ط¯ظ‡ ط§ط² ط±ظ…ط²ظ†ع¯ط§ط±غŒ <strong>AES-256-GCM</strong> ط§ظ†ط¬ط§ظ… ظ…غŒâ€Œط´ظˆط¯. ط§ط±طھط¨ط§ط·ط§طھ ظپظ‚ط· ط¯ط± ط´ط¨ع©ظ‡ ظ…ط­ظ„غŒ ط´ظ…ط§ طµظˆط±طھ ظ…غŒâ€Œع¯غŒط±ط¯ ظˆ ظ‡غŒع† ط¯ط§ط¯ظ‡â€Œط§غŒ ط§ط² ط§غŒظ†طھط±ظ†طھ ط¹ط¨ظˆط± ظ†ظ…غŒâ€Œع©ظ†ط¯.</p>
+
+            <h2>غ¶. ط­ط±غŒظ… ط®طµظˆطµغŒ ع©ظˆط¯ع©ط§ظ†</h2>
+            <p>ط§غŒظ† ط§ظ¾ظ„غŒع©غŒط´ظ† ط¨ط±ط§غŒ ط§ط³طھظپط§ط¯ظ‡ ط§ظپط±ط§ط¯ ط²غŒط± غ±غ³ ط³ط§ظ„ ط·ط±ط§ط­غŒ ظ†ط´ط¯ظ‡ ط§ط³طھ ظˆ ط§ط·ظ„ط§ط¹ط§طھ ط´ط®طµغŒ ع©ظˆط¯ع©ط§ظ† ط±ط§ ط¬ظ…ط¹â€Œط¢ظˆط±غŒ ظ†ظ…غŒâ€Œع©ظ†ط¯.</p>
+
+            <h2>غ·. طھط؛غŒغŒط±ط§طھ ط³غŒط§ط³طھ</h2>
+            <p>ظ‡ط±ع¯ظˆظ†ظ‡ طھط؛غŒغŒط± ط¯ط± ط§غŒظ† ط³غŒط§ط³طھ ط§ط² ط·ط±غŒظ‚ ط¨ظ‡â€Œط±ظˆط²ط±ط³ط§ظ†غŒ ط§ظ¾ظ„غŒع©غŒط´ظ† ط§ط·ظ„ط§ط¹â€Œط±ط³ط§ظ†غŒ ط®ظˆط§ظ‡ط¯ ط´ط¯. طھظˆطµغŒظ‡ ظ…غŒâ€Œط´ظˆط¯ ظ†ط³ط®ظ‡ ط¬ط¯غŒط¯ ط§ظ¾ظ„غŒع©غŒط´ظ† ط±ط§ ط¨ط±ط±ط³غŒ ع©ظ†غŒط¯.</p>
+
+            <h2>غ¸. طھظ…ط§ط³ ط¨ط§ ظ…ط§</h2>
+            <p>ط¯ط± طµظˆط±طھ ط¯ط§ط´طھظ† ظ‡ط±ع¯ظˆظ†ظ‡ ط³ط¤ط§ظ„ غŒط§ ظ†ع¯ط±ط§ظ†غŒ ط¯ط±ط¨ط§ط±ظ‡ ط­ط±غŒظ… ط®طµظˆطµغŒ ط®ظˆط¯طŒ ظ„ط·ظپط§ظ‹ ط¨ط§ ظ…ط§ ط§ط² ط·ط±غŒظ‚ ط§غŒظ…غŒظ„ ط²غŒط± طھظ…ط§ط³ ط¨ع¯غŒط±غŒط¯:</p>
+            <p><a href="mailto:Mostafa.Yazdani65@gmail.com">Mostafa.Yazdani65@gmail.com</a></p>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 FileTransferApp &mdash; طھظ…ط§ظ…غŒ ط­ظ‚ظˆظ‚ ظ…ط­ظپظˆط¸ ط§ط³طھ<br>
+            <a href="https://github.com/sarbaz1396/FileTransferApp">GitHub Repository</a>
+        </div>
+    </div>
+</body>
+</html>
