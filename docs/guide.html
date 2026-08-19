@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ط¢ظ…ظˆط²ط´ ط§ط³طھظپط§ط¯ظ‡ - FileTransferApp</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.9;
+        }
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #7C3AED, #9575CD);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header img {
+            width: 80px; height: 80px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+        .header h1 { font-size: 30px; margin-bottom: 8px; }
+        .header .subtitle { opacity: 0.85; font-size: 14px; }
+        .content { padding: 35px 40px; }
+        .step {
+            background: #f8f9ff;
+            border-radius: 14px;
+            padding: 25px 28px;
+            margin: 20px 0;
+            border-right: 5px solid #7C3AED;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #7C3AED;
+            color: white;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .step h3 {
+            color: #7C3AED;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .step p, .step ul {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .step ul { padding-right: 20px; }
+        .step ul li { margin-bottom: 4px; }
+        .step ul li::marker { color: #7C3AED; }
+        .tip {
+            background: #E8F5E9;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-right: 4px solid #4CAF50;
+        }
+        .tip-title { font-weight: bold; color: #2E7D32; margin-bottom: 4px; }
+        .tip p { color: #333; font-size: 14px; }
+        .warning {
+            background: #FFF3E0;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-right: 4px solid #FF9800;
+        }
+        .warning-title { font-weight: bold; color: #E65100; margin-bottom: 4px; }
+        .warning p { color: #333; font-size: 14px; }
+        .section-title {
+            color: #7C3AED;
+            font-size: 22px;
+            margin: 35px 0 15px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f0e6ff;
+        }
+        .platform-section {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+        }
+        .platform-box {
+            flex: 1;
+            background: #f0f0ff;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+        .platform-box h4 { color: #7C3AED; margin-bottom: 5px; }
+        .platform-box p { font-size: 13px; color: #666; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, #f0e6ff, #e8f5e9);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+        .feature-card .icon { font-size: 32px; margin-bottom: 8px; }
+        .feature-card h4 { color: #7C3AED; font-size: 15px; margin-bottom: 5px; }
+        .feature-card p { font-size: 13px; color: #666; }
+        .footer {
+            text-align: center;
+            padding: 20px 30px;
+            background: #f8f9fa;
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+        }
+        a { color: #7C3AED; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (max-width: 600px) {
+            .container { margin: 0; border-radius: 0; }
+            .content { padding: 20px; }
+            .platform-section { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://raw.githubusercontent.com/sarbaz1396/FileTransferApp/main/Resources/Images/app_icon.png" alt="App Icon" onerror="this.style.display='none'">
+            <h1>ط¢ظ…ظˆط²ط´ ط§ط³طھظپط§ط¯ظ‡ ط§ط² FileTransferApp</h1>
+            <p class="subtitle">ط±ط§ظ‡ظ†ظ…ط§غŒ ع¯ط§ظ… ط¨ظ‡ ع¯ط§ظ… ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ ظˆ ظ¾غŒط§ظ…â€Œط±ط³ط§ظ†غŒ ط¨غŒâ€Œط³غŒظ…</p>
+        </div>
+
+        <div class="content">
+
+            <!-- ط§ظ…ع©ط§ظ†ط§طھ -->
+            <h2 class="section-title">ط§ظ…ع©ط§ظ†ط§طھ ط§ظ¾ظ„غŒع©غŒط´ظ†</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon">ًں“¤</div>
+                    <h4>ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„</h4>
+                    <p>ط§ط±ط³ط§ظ„ ظپط§غŒظ„â€Œظ‡ط§غŒ ط­ط¬غŒظ… ط¨ط§ ط³ط±ط¹طھ ط¨ط§ظ„ط§ ط±ظˆغŒ ط´ط¨ع©ظ‡ Wi-Fi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">ًں’¬</div>
+                    <h4>ع†طھ ظ…طھظ†غŒ</h4>
+                    <p>ط§ط±ط³ط§ظ„ ظ¾غŒط§ظ… ظ…طھظ†غŒ ط¨غŒظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§ ط¨ظ‡â€Œطµظˆط±طھ ط¢ظ†ظ„ط§غŒظ†</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">ًں”’</div>
+                    <h4>ط§ظ…ظ†غŒطھ ط¨ط§ظ„ط§</h4>
+                    <p>ط±ظ…ط²ظ†ع¯ط§ط±غŒ AES-256 ظˆ ط¬ظپطھâ€Œط´ط¯ظ† ط§غŒظ…ظ† ط¨غŒظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">âڈ¸ï¸ڈ</div>
+                    <h4>ع©ظ†طھط±ظ„ ط§ظ†طھظ‚ط§ظ„</h4>
+                    <p>طھظˆظ‚ظپ ظˆ ط§ط¯ط§ظ…ظ‡ ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ ط¯ط± ظ‡ط± ظ„ط­ط¸ظ‡</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">ًں“±</div>
+                    <h4>ع†ظ†ط¯ ظ¾ظ„طھظپط±ظ…غŒ</h4>
+                    <p>ع©ط§ط± ط±ظˆغŒ ظˆغŒظ†ط¯ظˆط² ظˆ ط§ظ†ط¯ط±ظˆغŒط¯ ط¨ظ‡â€Œطµظˆط±طھ ظ‡ظ…ط²ظ…ط§ظ†</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">ًںŒگ</div>
+                    <h4>ط¨ط¯ظˆظ† ط§غŒظ†طھط±ظ†طھ</h4>
+                    <p>ظ†غŒط§ط²غŒ ط¨ظ‡ ط§غŒظ†طھط±ظ†طھ ظ†ط¯ط§ط±ط¯طŒ ظپظ‚ط· Wi-Fi ظ…ط­ظ„غŒ ع©ط§ظپغŒط³طھ</p>
+                </div>
+            </div>
+
+            <!-- ظ†طµط¨ -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غ±: ظ†طµط¨ ط§ظ¾ظ„غŒع©غŒط´ظ†</h2>
+            <div class="step">
+                <div class="step-number">غ±</div>
+                <h3>ط¯ط±غŒط§ظپطھ ظˆ ظ†طµط¨</h3>
+                <p>ط§ظ¾ظ„غŒع©غŒط´ظ† ط±ط§ ط§ط² ظ„غŒظ†ع©â€Œظ‡ط§غŒ ط²غŒط± ط¯ط§ظ†ظ„ظˆط¯ ظˆ ظ†طµط¨ ع©ظ†غŒط¯:</p>
+                <div class="platform-section">
+                    <div class="platform-box">
+                        <h4>Windows</h4>
+                        <p>ظپط§غŒظ„ exe ط±ط§ ط§ط¬ط±ط§ ظˆ ظ†طµط¨ ع©ظ†غŒط¯</p>
+                    </div>
+                    <div class="platform-box">
+                        <h4>Android</h4>
+                        <p>ظپط§غŒظ„ APK ط±ط§ ط¯ط§ظ†ظ„ظˆط¯ ظˆ ظ†طµط¨ ع©ظ†غŒط¯</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">
+                <div class="tip-title">ًں’، ظ†ع©طھظ‡</div>
+                <p>ط¯ط± ط§ظ†ط¯ط±ظˆغŒط¯طŒ ط§ع¯ط± ظ¾غŒط§ظ… "ظ†طµط¨ ط§ط² ظ…ظ†ط§ط¨ط¹ ظ†ط§ط´ظ†ط§ط®طھظ‡" ط±ط§ ط¯غŒط¯غŒط¯طŒ ط§ط² طھظ†ط¸غŒظ…ط§طھ ع¯ظˆط´غŒ ط§ط¬ط§ط²ظ‡ ظ†طµط¨ ط¨ط¯ظ‡غŒط¯.</p>
+            </div>
+
+            <!-- ط±ظˆط´ظ† ع©ط±ط¯ظ† -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غ²: ط±ط§ظ‡â€Œط§ظ†ط¯ط§ط²غŒ</h2>
+            <div class="step">
+                <div class="step-number">غ²</div>
+                <h3>ظˆط±ظˆط¯ ط¨ظ‡ ط§ظ¾ظ„غŒع©غŒط´ظ†</h3>
+                <p>ط§ظ¾ظ„غŒع©غŒط´ظ† ط±ط§ ط±ظˆغŒ <strong>ظ‡ط± ط¯ظˆ ط¯ط³طھع¯ط§ظ‡</strong> (ظ…ط«ظ„ط§ظ‹ ع©ط§ظ…ظ¾غŒظˆطھط± ظˆ ع¯ظˆط´غŒ) ط¨ط§ط² ع©ظ†غŒط¯.</p>
+                <ul>
+                    <li>ط¯ط± ط§ظˆظ„غŒظ† ط§ط¬ط±ط§طŒ ط§ط² ط´ظ…ط§ ظ†ط§ظ… ط¯ط³طھع¯ط§ظ‡ ظ¾ط±ط³غŒط¯ظ‡ ظ…غŒâ€Œط´ظˆط¯</li>
+                    <li>غŒع© ظ†ط§ظ… ط¯ظ„ط®ظˆط§ظ‡ ط¨ط±ط§غŒ ظ‡ط± ط¯ط³طھع¯ط§ظ‡ ظˆط§ط±ط¯ ع©ظ†غŒط¯ (ظ…ط«ظ„ط§ظ‹ "ظ„ظ¾â€Œطھط§ظ¾" ظˆ "ع¯ظˆط´غŒ")</li>
+                    <li>ظ†ط§ظ… ظ‡ط± ط¯ط³طھع¯ط§ظ‡ ط¨ط§غŒط¯ ظ…طھظپط§ظˆطھ ط¨ط§ط´ط¯</li>
+                </ul>
+            </div>
+            <div class="tip">
+                <div class="tip-title">ًں’، ظ†ع©طھظ‡</div>
+                <p>ظ‡ط± ط¯ظˆ ط¯ط³طھع¯ط§ظ‡ ط¨ط§غŒط¯ ط¨ظ‡ <strong>غŒع© ط´ط¨ع©ظ‡ Wi-Fi</strong> ظ…طھطµظ„ ط¨ط§ط´ظ†ط¯.</p>
+            </div>
+
+            <!-- ط¬ظپطھâ€Œط´ط¯ظ† -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غ³: ط¬ظپطھâ€Œط´ط¯ظ† ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§</h2>
+            <div class="step">
+                <div class="step-number">غ³</div>
+                <h3>ط´ظ†ط§ط³ط§غŒغŒ ظˆ ط¬ظپطھâ€Œط´ط¯ظ†</h3>
+                <p>ط¨ط¹ط¯ ط§ط² ط¨ط§ط² ع©ط±ط¯ظ† ط§ظ¾ظ„غŒع©غŒط´ظ†طŒ ظ„غŒط³طھ ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§غŒ ظ…ظˆط¬ظˆط¯ ط¯ط± ط´ط¨ع©ظ‡ ظ†ظ…ط§غŒط´ ط¯ط§ط¯ظ‡ ظ…غŒâ€Œط´ظˆط¯.</p>
+                <ul>
+                    <li>ط¯ط³طھع¯ط§ظ‡ ظ…ظˆط±ط¯ ظ†ط¸ط± ط®ظˆط¯ ط±ط§ ط§ط² ظ„غŒط³طھ ط§ظ†طھط®ط§ط¨ ع©ظ†غŒط¯</li>
+                    <li>ط±ظˆغŒ <strong>"ط¬ظپطھâ€Œط´ط¯ظ†"</strong> غŒط§ <strong>"Pair"</strong> ع©ظ„غŒع© ع©ظ†غŒط¯</li>
+                    <li>ط¯ط± ط¯ط³طھع¯ط§ظ‡ ظ…ظ‚ط§ط¨ظ„ ظ†غŒط² ط¯ط±ط®ظˆط§ط³طھ ط¬ظپطھâ€Œط´ط¯ظ† طھط£غŒغŒط¯ ط´ظˆط¯</li>
+                    <li>ظ¾ط³ ط§ط² طھط£غŒغŒط¯طŒ ط¢غŒع©ظˆظ† ظ‚ظپظ„ ط³ط¨ط² ظ†ظ…ط§غŒط´ ط¯ط§ط¯ظ‡ ظ…غŒâ€Œط´ظˆط¯</li>
+                </ul>
+            </div>
+            <div class="warning">
+                <div class="warning-title">âڑ ï¸ڈ ظ…ظ‡ظ…</div>
+                <p>ظپظ‚ط· ط¨ط§ ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§غŒغŒ ع©ظ‡ ظ…غŒâ€Œط´ظ†ط§ط³غŒط¯ ط¬ظپطھ ط´ظˆغŒط¯. ط¬ظپطھâ€Œط´ط¯ظ† ظپظ‚ط· غŒع©â€Œط¨ط§ط± ط§ظ†ط¬ط§ظ… ظ…غŒâ€Œط´ظˆط¯ ظˆ ط¨ط¹ط¯ط§ظ‹ ط®ظˆط¯ع©ط§ط± ظ…طھطµظ„ ظ…غŒâ€Œط´ظˆط¯.</p>
+            </div>
+
+            <!-- ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غ´: ط§ط±ط³ط§ظ„ ظپط§غŒظ„</h2>
+            <div class="step">
+                <div class="step-number">غ´</div>
+                <h3>ط§ظ†طھط®ط§ط¨ ظˆ ط§ط±ط³ط§ظ„ ظپط§غŒظ„</h3>
+                <ul>
+                    <li>ط¯ط± طµظپط­ظ‡ ط§طµظ„غŒطŒ ط¯ع©ظ…ظ‡ <strong>"ًں“ژ"</strong> غŒط§ <strong>"ط§ظ†طھط®ط§ط¨ ظپط§غŒظ„"</strong> ط±ط§ ط¨ط²ظ†غŒط¯</li>
+                    <li>ظپط§غŒظ„ ظ…ظˆط±ط¯ ظ†ط¸ط± ط±ط§ ط§ط² ط­ط§ظپط¸ظ‡ ط¯ط³طھع¯ط§ظ‡ ط§ظ†طھط®ط§ط¨ ع©ظ†غŒط¯</li>
+                    <li>ظپط§غŒظ„ ط¨ظ‡â€Œطµظˆط±طھ ط®ظˆط¯ع©ط§ط± ط´ط±ظˆط¹ ط¨ظ‡ ط§ط±ط³ط§ظ„ ظ…غŒâ€Œع©ظ†ط¯</li>
+                    <li>ظ¾غŒط´ط±ظپطھ ط§ظ†طھظ‚ط§ظ„ ط§ط² ط·ط±غŒظ‚ ظ†ظˆط§ط± ظ¾غŒط´ط±ظپطھ ظ‚ط§ط¨ظ„ ظ…ط´ط§ظ‡ط¯ظ‡ ط§ط³طھ</li>
+                </ul>
+            </div>
+            <div class="tip">
+                <div class="tip-title">ًں’، ع©ظ†طھط±ظ„ ط§ظ†طھظ‚ط§ظ„</div>
+                <p>ط¯ط± ط­غŒظ† ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ ظ…غŒâ€Œطھظˆط§ظ†غŒط¯:</p>
+                <ul>
+                    <li> ط±ظˆغŒ ط¯ع©ظ…ظ‡ <strong>âڈ¸ï¸ڈ</strong> ع©ظ„غŒع© ع©ظ†غŒط¯ طھط§ ط§ظ†طھظ‚ط§ظ„ ظ…طھظˆظ‚ظپ ط´ظˆط¯</li>
+                    <li> ط±ظˆغŒ ط¯ع©ظ…ظ‡ <strong>â–¶ï¸ڈ</strong> ع©ظ„غŒع© ع©ظ†غŒط¯ طھط§ ط§ط¯ط§ظ…ظ‡ غŒط§ط¨ط¯</li>
+                    <li> ط±ظˆغŒ ط¯ع©ظ…ظ‡ <strong>â‌Œ</strong> ع©ظ„غŒع© ع©ظ†غŒط¯ طھط§ ط§ظ†طھظ‚ط§ظ„ ظ„ط؛ظˆ ط´ظˆط¯</li>
+                </ul>
+            </div>
+
+            <!-- ع†طھ -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غµ: ط§ط±ط³ط§ظ„ ظ¾غŒط§ظ… ظ…طھظ†غŒ</h2>
+            <div class="step">
+                <div class="step-number">غµ</div>
+                <h3>ع†طھ ط¨ط§ ط¯ط³طھع¯ط§ظ‡ ظ…ظ‚ط§ط¨ظ„</h3>
+                <ul>
+                    <li>ط¯ط± ظ¾ط§غŒغŒظ† طµظپط­ظ‡ ع†طھطŒ ظ…طھظ† ط®ظˆط¯ ط±ط§ طھط§غŒظ¾ ع©ظ†غŒط¯</li>
+                    <li>ط±ظˆغŒ ط¯ع©ظ…ظ‡ ط§ط±ط³ط§ظ„ <strong>"ًں“¨"</strong> ع©ظ„غŒع© ع©ظ†غŒط¯ غŒط§ Enter ط¨ط²ظ†غŒط¯</li>
+                    <li>ظ¾غŒط§ظ… ط´ظ…ط§ ط¨ط§ ط±ظ†ع¯ <span style="color:#7C3AED;font-weight:bold;">ط¨ظ†ظپط´</span> ظ†ظ…ط§غŒط´ ط¯ط§ط¯ظ‡ ظ…غŒâ€Œط´ظˆط¯</li>
+                    <li>ظ¾غŒط§ظ…â€Œظ‡ط§غŒ ط¯ط±غŒط§ظپطھغŒ ط¨ط§ ط±ظ†ع¯ <span style="color:#555;font-weight:bold;">ط®ط§ع©ط³طھط±غŒ</span> ظ†ظ…ط§غŒط´ ط¯ط§ط¯ظ‡ ظ…غŒâ€Œط´ظˆط¯</li>
+                </ul>
+            </div>
+
+            <!-- طھظ†ط¸غŒظ…ط§طھ -->
+            <h2 class="section-title">ظ…ط±ط­ظ„ظ‡ غ¶: طھظ†ط¸غŒظ…ط§طھ ظˆ ط§ط·ظ„ط§ط¹ط§طھ</h2>
+            <div class="step">
+                <div class="step-number">غ¶</div>
+                <h3>طµظپط­ظ‡ About</h3>
+                <ul>
+                    <li>ط§ط² طµظپط­ظ‡ ط§طµظ„غŒطŒ ط±ظˆغŒ ظ„غŒظ†ع© <strong>"ط¯ط±ط¨ط§ط±ظ‡ ظ…ط§"</strong> ع©ظ„غŒع© ع©ظ†غŒط¯</li>
+                    <li>ظˆط±عکظ† ط§ظ¾ظ„غŒع©غŒط´ظ†طŒ ط§ط·ظ„ط§ط¹ط§طھ طھغŒظ… طھظˆط³ط¹ظ‡â€Œط¯ظ‡ظ†ط¯ظ‡ ظˆ ظ„غŒظ†ع© GitHub</li>
+                    <li>ط¯ط³طھط±ط³غŒ ط¨ظ‡ <strong>ط³غŒط§ط³طھ ط­ط±غŒظ… ط®طµظˆطµغŒ</strong></li>
+                </ul>
+            </div>
+
+            <!-- ظ†ع©ط§طھ -->
+            <h2 class="section-title">ظ†ع©ط§طھ ظ…ظ‡ظ…</h2>
+
+            <div class="tip">
+                <div class="tip-title">ًں”’ ط§ظ…ظ†غŒطھ</div>
+                <p>طھظ…ط§ظ…غŒ ط¯ط§ط¯ظ‡â€Œظ‡ط§ ط¨ط§ ط±ظ…ط²ظ†ع¯ط§ط±غŒ AES-256 ط§ط±ط³ط§ظ„ ظ…غŒâ€Œط´ظˆظ†ط¯. ظ‡غŒع†â€Œع†غŒط² ط§ط² ط§غŒظ†طھط±ظ†طھ ط¹ط¨ظˆط± ظ†ظ…غŒâ€Œع©ظ†ط¯.</p>
+            </div>
+
+            <div class="tip">
+                <div class="tip-title">ًں“¶ ط´ط¨ع©ظ‡</div>
+                <p>ط¨ط±ط§غŒ ط¨ظ‡طھط±غŒظ† ط³ط±ط¹طھطŒ ظ‡ط± ط¯ظˆ ط¯ط³طھع¯ط§ظ‡ ط±ط§ ظ†ط²ط¯غŒع© ط±ظˆطھط± Wi-Fi ظ‚ط±ط§ط± ط¯ظ‡غŒط¯. ط³ط±ط¹طھ ط§ظ†طھظ‚ط§ظ„ ط¨ظ‡ ظ‚ط¯ط±طھ ط³غŒع¯ظ†ط§ظ„ ط¨ط³طھع¯غŒ ط¯ط§ط±ط¯.</p>
+            </div>
+
+            <div class="tip">
+                <div class="tip-title">ًں’¾ ظپط¶ط§غŒ ط°ط®غŒط±ظ‡â€Œط³ط§ط²غŒ</div>
+                <p>ظ…ط·ظ…ط¦ظ† ط´ظˆغŒط¯ ظپط¶ط§غŒ ع©ط§ظپغŒ ط¯ط± ط¯ط³طھع¯ط§ظ‡ ظ…ظ‚طµط¯ ط¨ط±ط§غŒ ط¯ط±غŒط§ظپطھ ظپط§غŒظ„ ظˆط¬ظˆط¯ ط¯ط§ط±ط¯.</p>
+            </div>
+
+            <div class="warning">
+                <div class="warning-title">âڑ ï¸ڈ ظپط§غŒط±ظˆط§ظ„ ظˆغŒظ†ط¯ظˆط²</div>
+                <p>ط§ع¯ط± ط§ط² ظˆغŒظ†ط¯ظˆط² ط§ط³طھظپط§ط¯ظ‡ ظ…غŒâ€Œع©ظ†غŒط¯طŒ ظ…ظ…ع©ظ† ط§ط³طھ ظپط§غŒط±ظˆط§ظ„ ط¯ط±ط®ظˆط§ط³طھ ط¯ط³طھط±ط³غŒ ط¨ظ‡ ط´ط¨ع©ظ‡ ط±ط§ ظ†ظ…ط§غŒط´ ط¯ظ‡ط¯. ط±ظˆغŒ <strong>"ط§ط¬ط§ط²ظ‡ ط¯ط§ط¯ظ†"</strong> ع©ظ„غŒع© ع©ظ†غŒط¯.</p>
+            </div>
+
+            <!-- ط¹غŒط¨â€ŒغŒط§ط¨غŒ -->
+            <h2 class="section-title">ط¹غŒط¨â€ŒغŒط§ط¨غŒ</h2>
+
+            <div class="step">
+                <div class="step-number">طں</div>
+                <h3>ط¯ط³طھع¯ط§ظ‡ ظ…ظ‚ط§ط¨ظ„ ظ¾غŒط¯ط§ ظ†ظ…غŒâ€Œط´ظˆط¯</h3>
+                <ul>
+                    <li>ظ…ط·ظ…ط¦ظ† ط´ظˆغŒط¯ ظ‡ط± ط¯ظˆ ط¯ط³طھع¯ط§ظ‡ ط¨ظ‡ <strong>غŒع© Wi-Fi</strong> ظ…طھطµظ„ ظ‡ط³طھظ†ط¯</li>
+                    <li>ظپط§غŒط±ظˆط§ظ„ غŒط§ ط¢ظ†طھغŒâ€ŒظˆغŒط±ظˆط³ ط±ط§ ظ…ظˆظ‚طھط§ظ‹ ط؛غŒط±ظپط¹ط§ظ„ ع©ظ†غŒط¯</li>
+                    <li>ط§ظ¾ظ„غŒع©غŒط´ظ† ط±ط§ ط¯ط± ظ‡ط± ط¯ظˆ ط¯ط³طھع¯ط§ظ‡ ظ…ط¬ط¯ط¯ط§ظ‹ ط±ط§ظ‡â€Œط§ظ†ط¯ط§ط²غŒ ع©ظ†غŒط¯</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">طں</div>
+                <h3>ط§ظ†طھظ‚ط§ظ„ ظپط§غŒظ„ ظ‚ط·ط¹ ط´ط¯</h3>
+                <ul>
+                    <li>ط§ع¯ط± Wi-Fi ظ‚ط·ط¹ ط´ط¯ظ‡ ط¨ط§ط´ط¯طŒ ط§ظ†طھظ‚ط§ظ„ ظ…طھظˆظ‚ظپ ظ…غŒâ€Œط´ظˆط¯</li>
+                    <li>ط¨ط§ ط§طھطµط§ظ„ ظ…ط¬ط¯ط¯ Wi-FiطŒ ط§ظ†طھظ‚ط§ظ„ ط§ط¯ط§ظ…ظ‡ ظ…غŒâ€ŒغŒط§ط¨ط¯</li>
+                    <li>ط¯ط± طµظˆط±طھ ظ„ط؛ظˆطŒ ظپط§غŒظ„ ط§ط² ط§ط¨طھط¯ط§ ط§ط±ط³ط§ظ„ ظ…غŒâ€Œط´ظˆط¯</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="step-number">طں</div>
+                <h3>ط³ط±ط¹طھ ط§ظ†طھظ‚ط§ظ„ ظ¾ط§غŒغŒظ† ط§ط³طھ</h3>
+                <ul>
+                    <li>ط¯ط³طھع¯ط§ظ‡â€Œظ‡ط§ ط±ط§ ط¨ظ‡ ط±ظˆطھط± ظ†ط²ط¯غŒع©â€Œطھط± ع©ظ†غŒط¯</li>
+                    <li>ط§ط² ط§ظ†طھظ‚ط§ظ„ ظ‡ظ…ط²ظ…ط§ظ† ع†ظ†ط¯ ظپط§غŒظ„ ط¨ط²ط±ع¯ ط®ظˆط¯ط¯ط§ط±غŒ ع©ظ†غŒط¯</li>
+                    <li>ظ…ط·ظ…ط¦ظ† ط´ظˆغŒط¯ ط´ط¨ع©ظ‡ Wi-Fi ط´ظ„ظˆط؛ ظ†غŒط³طھ</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            &copy; 2026 FileTransferApp &mdash; طھظ…ط§ظ…غŒ ط­ظ‚ظˆظ‚ ظ…ط­ظپظˆط¸ ط§ط³طھ<br>
+            <a href="https://github.com/sarbaz1396/FileTransferApp">GitHub Repository</a> |
+            <a href="privacy.html">ط³غŒط§ط³طھ ط­ط±غŒظ… ط®طµظˆطµغŒ</a>
+        </div>
+    </div>
+</body>
+</html>
