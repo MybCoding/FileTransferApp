@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -58,6 +58,13 @@
             transition: background 0.2s;
         }
         .card a:hover { background: #6D28D9; text-decoration: none; }
+        .qr-section { margin-top: 18px; padding-top: 15px; border-top: 1px solid #eee; }
+        .qr-label { font-size: 12px; color: #888; margin-bottom: 10px; }
+        .qr-code {
+            width: 180px; height: 180px;
+            border-radius: 12px;
+            border: 2px solid #f0e6ff;
+        }
         .footer {
             text-align: center;
             padding: 20px;
@@ -69,7 +76,7 @@
 </head>
 <body>
     <div class="hero">
-        <img src="https://raw.githubusercontent.com/sarbaz1396/FileTransferApp/main/Resources/Images/app_icon.png" alt="FileTransferApp" onerror="this.style.display='none'">
+        <img src="https://raw.githubusercontent.com/MybCoding/FileTransferApp/main/Resources/Images/app_icon.png" alt="FileTransferApp" onerror="this.style.display='none'">
         <h1>FileTransferApp</h1>
         <p>انتقال فایل و پیام بین کامپیوتر و گوشی از طریق Wi-Fi با سرعت بالا و امنیت کامل</p>
     </div>
@@ -93,19 +100,23 @@
             <div class="icon">💻</div>
             <h3>گیت‌هاب</h3>
             <p>کد منبع، دانلود آخرین نسخه و گزارش باگ</p>
-            <a href="https://github.com/sarbaz1396/FileTransferApp">مشاهده Repository</a>
+            <a href="https://github.com/MybCoding/FileTransferApp">مشاهده Repository</a>
         </div>
 
         <div class="card">
             <div class="icon">⬇️</div>
             <h3>دانلود اپلیکیشن</h3>
             <p>آخرین نسخه پایدار برای ویندوز و اندروید</p>
-            <a href="https://github.com/sarbaz1396/FileTransferApp/releases">دانلود</a>
+            <a href="https://github.com/MybCoding/FileTransferApp/releases">دانلود</a>
+            <div class="qr-section">
+                <p class="qr-label">اسکن QR Code برای دانلود اندروید:</p>
+                <img class="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com/MybCoding/FileTransferApp/releases/download/untagged-394ef6b195cbc4d28637/FileTransferApp-1.0.0-android.apk&bgcolor=FFFFFF&color=7C3AED" alt="QR Code Android Download">
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        &copy; 2026 FileTransferApp &mdash; <a href="https://github.com/sarbaz1396/FileTransferApp">GitHub</a>
+        &copy; 2026 FileTransferApp &mdash; <a href="https://github.com/MybCoding/FileTransferApp">GitHub</a>
     </div>
 </body>
 </html>
