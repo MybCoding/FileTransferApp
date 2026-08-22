@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FileTransferApp.AboutPage"
+             Title="درباره ما"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#333}"
+             Shell.NavBarIsVisible="True">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                             Padding="30"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Fill">
+
+                <!-- Logo -->
+                <Image Source="app_icon.png"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       HorizontalOptions="Center" 
+                       Margin="0,0,0,20"/>
+
+                <!-- App Name -->
+                <Label Text="FileTransferApp"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=#512BD4, Dark=White}" />
+
+                <Label x:Name="VersionLabel"
+                       FontSize="14"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=Gray, Dark=#CCC}" />
+
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,20" />
+
+                <!-- Developer Info -->
+                <Label Text="توسعه دهنده:"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+
+                <Label Text="مصطفی یزدانی"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=#333, Dark=White}" />
+
+                <Label Text="Mostafa Yazdani"
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=#555, Dark=#CCC}" />
+
+                <!-- Email -->
+                <Label Text="ایمیل:"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Margin="0,20,0,0"
+                       TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+
+                <Label Text="Mostafa.Yazdani65@gmail.com"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="Blue"
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEmailTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,20" />
+
+                <!-- Privacy Policy Link -->
+                <Label Text="سیاست حریم خصوصی"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="#1E88E5"
+                       TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPrivacyPolicyTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView HeightRequest="1" Color="LightGray" Margin="0,20" />
+                
+                <Label Text="طراحی شده با ❤️ و .NET MAUI"
+                       FontSize="12"
+                       HorizontalOptions="Center"
+                       TextColor="{AppThemeBinding Light=Gray, Dark=#CCC}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

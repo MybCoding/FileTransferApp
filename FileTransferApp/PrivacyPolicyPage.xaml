@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FileTransferApp.PrivacyPolicyPage"
+             Title="حریم خصوصی"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#1E1E1E}"
+             Shell.NavBarIsVisible="True">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="20,20">
+
+            <Label Text="سیاست حریم خصوصی"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}" />
+
+            <Label Text="آخرین به‌روزرسانی: مرداد ۱۴۰۵"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#888, Dark=#777}" />
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#444}" />
+
+            <Label Text="۱. جمع‌آوری اطلاعات"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    اپلیکیشن FileTransferApp هیچگونه اطلاعات شخصی، داده کاربری یا فایل‌های شما را به سرورهای خارجی ارسال نمی‌کند. تمامی انتقال داده‌ها به‌صورت مستقیم و نفر به نفر بین دستگاه‌های شما و از طریق شبکه محلی (Wi-Fi) انجام می‌شود.
+                </Label.Text>
+            </Label>
+
+            <Label Text="۲. دسترسی‌ها"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+این اپلیکیشن از مجوزهای زیر استفاده می‌کند:
+
+• دسترسی به اینترنت: برای برقراری ارتباط بین دستگاه‌ها در شبکه محلی
+• دسترسی به وضعیت شبکه و Wi-Fi: برای شناسایی دستگاه‌های موجود در شبکه
+• ذخیره فایل‌ها: با استفاده از سیستم انتخاب فایل اندروید (Storage Access Framework) و بدون نیاز به مجوزهای اضافی
+
+این اپلیکیشن به دوربین، میکروفون، مخاطبین یا موقعیت مکانی شما دسترسی ندارد.
+                </Label.Text>
+            </Label>
+
+            <Label Text="۳. ذخیره‌سازی داده"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+تمامی فایل‌های انتقال‌یافته فقط در دستگاه شما ذخیره می‌شوند. هیچ فایل یا اطلاعاتی روی سرورهای ما ذخیره نمی‌شود. تنها اطلاعات ذخیره‌شده در دستگاه شامل موارد زیر است:
+
+• تنظیمات جفت‌شدن دستگاه‌ها (به‌صورت محلی)
+• مسیر انتخاب‌شده برای ذخیره فایل‌ها
+• تنظیمات پیش‌فرض اپلیکیشن
+                </Label.Text>
+            </Label>
+
+            <Label Text="۴. امنیت انتقال"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+تمامی انتقال داده‌ها با استفاده از رمزنگاری AES-256-GCM انجام می‌شود. ارتباطات فقط در شبکه محلی شما صورت می‌گیرد و هیچ داده‌ای از اینترنت عبور نمی‌کند.
+                </Label.Text>
+            </Label>
+
+            <Label Text="۵. حریم خصوصی کودکان"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+این اپلیکیشن برای استفاده افراد زیر ۱۳ سال طراحی نشده است و اطلاعات شخصی کودکان را جمع‌آوری نمی‌کند.
+                </Label.Text>
+            </Label>
+
+            <Label Text="۶. تغییرات سیاست"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+هرگونه تغییر در این سیاست از طریق به‌روزرسانی اپلیکیشن اطلاع‌رسانی خواهد شد. توصیه می‌شود نسخه جدید اپلیکیشن را بررسی کنید.
+                </Label.Text>
+            </Label>
+
+            <Label Text="۷. تماس با ما"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+در صورت داشتن هرگونه سؤال یا نگرانی درباره حریم خصوصی خود، لطفاً با ما از طریق ایمیل زیر تماس بگیرید:
+                </Label.Text>
+            </Label>
+
+            <Label Text="Mostafa.Yazdani65@gmail.com"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   TextColor="#1E88E5"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEmailTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#444}" Margin="0,8" />
+
+            <Label Text="© 2026 FileTransferApp. تمامی حقوق محفوظ است."
+                   FontSize="11"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#999, Dark=#666}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

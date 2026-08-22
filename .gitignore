@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.nupkg
+*.snupkg
+TestResults/
+keystore/
+*.keystore
+New Text Document*.txt
