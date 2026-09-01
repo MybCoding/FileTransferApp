@@ -11,7 +11,7 @@ DefaultGroupName=FileTransferApp
 DisableProgramGroupPage=yes
 OutputDir=D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\dist
 OutputBaseFilename=FileTransferApp-Setup-1.1.1
-SetupIconFile=D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\FileTransferApp\bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish\appicon.ico
+SetupIconFile=D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\FileTransferApp\bin\x64\Release\net8.0-windows10.0.19041.0\win-x64\publish\appicon.ico
 Compression=lzma2
 SolidCompression=yes
 WizardStyle=modern
@@ -27,7 +27,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\FileTransferApp\bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\FileTransferApp\bin\x64\Release\net8.0-windows10.0.19041.0\win-x64\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
 Name: "{group}\FileTransferApp"; Filename: "{app}\FileTransferApp.exe"
