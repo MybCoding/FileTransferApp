@@ -1,7 +1,7 @@
 [Setup]
 AppId={{8F4E9B2A-3D5C-4A1B-9E7F-2C6D8A5B3E1F}
 AppName=FileTransferApp
-AppVersion=1.1.0
+AppVersion=1.1.1
 AppPublisher=Yazdani
 AppPublisherURL=https://github.com/MybCoding/FileTransferApp
 AppSupportURL=https://github.com/MybCoding/FileTransferApp
@@ -10,7 +10,7 @@ DefaultDirName={autopf}\FileTransferApp
 DefaultGroupName=FileTransferApp
 DisableProgramGroupPage=yes
 OutputDir=D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\dist
-OutputBaseFilename=FileTransferApp-Setup-1.1.0
+OutputBaseFilename=FileTransferApp-Setup-1.1.1
 SetupIconFile=D:\mostafa\FileTransferApp_1404106\FileTransferApp_14040216\FileTransferApp\bin\Release\net8.0-windows10.0.19041.0\win10-x64\publish\appicon.ico
 Compression=lzma2
 SolidCompression=yes
