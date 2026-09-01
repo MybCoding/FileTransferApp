@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Intentionally empty.
+         Some tooling expects Resources/values/colors.xml to exist.
+         Android colors are defined in Platforms/Android/Resources/values/colors.xml.
+    -->
+</resources>
+
+
+

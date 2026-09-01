@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:l10n="clr-namespace:FileTransferApp.Services"
+             x:Class="FileTransferApp.SplashPage"
+             BackgroundColor="#7C3AED"
+             Shell.NavBarIsVisible="False">
+
+    <Grid>
+
+        <VerticalStackLayout VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="20">
+
+            <!-- App Icon (same as About Us) -->
+            <Image Source="app_icon.png"
+                   HeightRequest="140"
+                   WidthRequest="140"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center" />
+
+            <!-- App Name -->
+            <Label Text="FileTransferApp"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" />
+
+            <!-- Tagline -->
+            <Label Text="{Binding [SplashTagline], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="14"
+                   TextColor="#CCFFFFFF"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   Margin="0,4,0,0" />
+        </VerticalStackLayout>
+
+        <!-- Version at bottom -->
+        <Label x:Name="SplashVersionLabel"
+               FontSize="12"
+               TextColor="#99FFFFFF"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,0,0,40" />
+    </Grid>
+
+</ContentPage>

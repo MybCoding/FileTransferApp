@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot 5 - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0f0f1a; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+        }
+        .phone-frame {
+            width: 380px; height: 780px; background: #f5f5f5;
+            border-radius: 40px; overflow: hidden; position: relative;
+            border: 4px solid #2a2a3e; box-shadow: 0 25px 80px rgba(124,58,237,0.25);
+        }
+        .status-bar {
+            height: 32px; background: #f5f5f5; display: flex; 
+            justify-content: space-between; align-items: center;
+            padding: 0 24px; color: #333; font-size: 12px; font-weight: 600;
+        }
+        
+        /* Nav Bar */
+        .nav-bar {
+            background: white; padding: 14px 20px; display: flex; align-items: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08); position: relative;
+        }
+        .nav-back { font-size: 18px; color: #333; position: absolute; right: 20px; cursor: pointer; }
+        .nav-title { font-size: 16px; font-weight: 700; color: #222; width: 100%; text-align: center; }
+
+        /* About Page Content */
+        .about-page {
+            padding: 30px; height: 648px; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .about-icon {
+            width: 150px; height: 150px; margin-bottom: 20px;
+            background: #f0f0f0; border-radius: 24px; display: flex; align-items: center;
+            justify-content: center; font-size: 80px; border: 1px solid #e0e0e0;
+        }
+        .about-name { 
+            font-size: 28px; font-weight: 700; color: #512BD4; 
+            margin-bottom: 4px; text-align: center;
+        }
+        .about-version { 
+            font-size: 14px; color: gray; margin-bottom: 20px; text-align: center;
+        }
+        .divider { 
+            width: 100%; height: 1px; background: lightgray; margin: 20px 0; 
+        }
+        .about-label { 
+            font-size: 16px; font-weight: 700; color: #222; 
+            text-align: center; margin-bottom: 4px;
+        }
+        .about-value { 
+            font-size: 22px; color: #333; text-align: center; 
+        }
+        .about-value-en { 
+            font-size: 18px; color: #555; text-align: center; 
+        }
+        .about-email { 
+            font-size: 16px; color: blue; text-decoration: underline; 
+            text-align: center; cursor: pointer;
+        }
+        .about-privacy { 
+            font-size: 16px; color: #1E88E5; text-decoration: underline; 
+            text-align: center; cursor: pointer;
+        }
+        .about-footer { 
+            font-size: 12px; color: gray; text-align: center; 
+        }
+
+        .watermark {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background: rgba(124,58,237,0.85); color: white; padding: 5px 16px;
+            border-radius: 14px; font-size: 10px; white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="status-bar">
+            <span>۱۲:۳۴</span>
+            <span>📱 FileTransferApp</span>
+            <span>۹۱٪</span>
+        </div>
+
+        <!-- Nav Bar -->
+        <div class="nav-bar">
+            <span class="nav-back">←</span>
+            <span class="nav-title">درباره ما</span>
+        </div>
+
+        <!-- About Page Content (AboutPage.xaml) -->
+        <div class="about-page">
+            <!-- Logo -->
+            <img src="app_icon.png" style="width:150px;height:150px;border-radius:24px;margin-bottom:20px;border:1px solid #e0e0e0;" />
+
+            <!-- App Name -->
+            <div class="about-name">FileTransferApp</div>
+            <div class="about-version">نسخه 1.0.0</div>
+
+            <div class="divider"></div>
+
+            <!-- Developer Info -->
+            <div class="about-label">توسعه دهنده:</div>
+            <div class="about-value">مصطفی یزدانی</div>
+            <div class="about-value-en" style="margin-bottom: 4px;">Mostafa Yazdani</div>
+
+            <!-- Email -->
+            <div class="about-label" style="margin-top: 20px;">ایمیل:</div>
+            <div class="about-email">Mostafa.Yazdani65@gmail.com</div>
+
+            <div class="divider"></div>
+
+            <!-- Privacy Policy -->
+            <div class="about-privacy">سیاست حریم خصوصی</div>
+
+            <div class="divider"></div>
+
+            <!-- Footer -->
+            <div class="about-footer">طراحی شده با ❤️ و .NET MAUI</div>
+        </div>
+
+        <div class="watermark">صفحه درباره ما</div>
+    </div>
+</body>
+</html>

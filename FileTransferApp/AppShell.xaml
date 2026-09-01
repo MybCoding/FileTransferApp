@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:FileTransferApp"
+       xmlns:l10n="clr-namespace:FileTransferApp.Services"
+       x:Class="FileTransferApp.AppShell">
+
+    <!-- Main/Home Page -->
+    <ShellContent Title="{Binding Source={x:Static l10n:LocalizationResourceManager.Instance}, Path=[DevicesTab]}"
+                  ContentTemplate="{DataTemplate views:MainPage}"
+                  Icon="dotnet_bot.png" />
+
+    <!-- ChatPage registered for navigation only via C# - removed from here to allow Back button -->
+
+</Shell>

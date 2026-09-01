@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot 2 - Chat Phone to Phone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0f0f1a; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+        }
+        .phone-frame {
+            width: 380px; height: 780px; background: #f5f5f5;
+            border-radius: 40px; overflow: hidden; position: relative;
+            border: 4px solid #2a2a3e; box-shadow: 0 25px 80px rgba(124,58,237,0.25);
+        }
+        .status-bar {
+            height: 32px; background: #f5f5f5; display: flex; 
+            justify-content: space-between; align-items: center;
+            padding: 0 24px; color: #333; font-size: 12px; font-weight: 600;
+        }
+
+        /* Header */
+        .chat-header {
+            background: white; padding: 12px 16px; display: flex; align-items: center;
+            gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .avatar {
+            width: 42px; height: 42px; background: linear-gradient(135deg, #7C3AED, #9575CD);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 18px; font-weight: 700;
+        }
+        .chat-info { flex: 1; }
+        .chat-name { font-size: 15px; font-weight: 700; color: #222; }
+        .chat-status { font-size: 11px; color: #888; }
+        .chat-status.active { color: #7C3AED; font-weight: 600; }
+        .delete-btn { color: #E53935; font-size: 18px; background: none; border: none; cursor: pointer; }
+
+        /* Messages */
+        .messages { padding: 16px 12px; height: 590px; overflow: hidden; display: flex; flex-direction: column; gap: 8px; }
+
+        .msg-sent {
+            align-self: flex-end; max-width: 70%; background: #7C3AED; color: white;
+            padding: 12px 16px; border-radius: 18px 18px 4px 18px;
+            font-size: 14px; line-height: 1.5;
+        }
+        .msg-time { font-size: 10px; opacity: 0.7; margin-top: 4px; text-align: left; }
+
+        .msg-received {
+            align-self: flex-start; max-width: 70%; background: white; color: #222;
+            padding: 12px 16px; border-radius: 18px 18px 18px 4px;
+            font-size: 14px; line-height: 1.5; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        /* File Card */
+        .file-card {
+            align-self: flex-end; max-width: 78%; background: white; border-radius: 16px;
+            overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .file-content { display: flex; align-items: center; gap: 10px; padding: 12px; }
+        .file-icon {
+            width: 44px; height: 44px; background: #f0ebff; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 20px;
+            flex-shrink: 0;
+        }
+        .file-details { flex: 1; }
+        .file-name { font-size: 13px; font-weight: 700; color: #222; }
+        .file-size { font-size: 11px; color: #888; margin-top: 2px; }
+        .file-ext {
+            background: #e8f5e9; color: #388e3c; font-size: 9px; font-weight: 700;
+            padding: 3px 7px; border-radius: 10px;
+        }
+
+        /* Progress */
+        .progress-section { padding: 0 12px 12px; }
+        .progress-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+        .progress-bar { flex: 1; height: 6px; background: #eee; border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; width: 67%; background: linear-gradient(90deg, #7C3AED, #9575CD); border-radius: 3px; }
+        .progress-pct { font-size: 11px; font-weight: 700; color: #7C3AED; }
+        .speed-info { display: flex; justify-content: space-between; margin-bottom: 4px; }
+        .speed-info span { font-size: 10px; color: #999; }
+        .bytes-info { font-size: 10px; color: #aaa; text-align: center; margin-bottom: 8px; }
+        .transfer-btns { display: flex; gap: 8px; align-items: center; }
+        .cancel-btn {
+            background: #FFEBEE; color: #E53935; border: none; padding: 6px 14px;
+            border-radius: 14px; font-size: 11px; font-weight: 600; cursor: pointer; font-family: inherit;
+        }
+        .pause-btn {
+            background: #FFF3E0; color: #F57C00; border: none; padding: 6px 10px;
+            border-radius: 14px; font-size: 14px; cursor: pointer;
+        }
+
+        /* Input */
+        .input-bar {
+            background: white; padding: 10px 12px; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+        }
+        .msg-input {
+            flex: 1; background: #f0f0f0; border: none; border-radius: 22px;
+            padding: 10px 16px; font-size: 13px; font-family: inherit;
+            outline: none;
+        }
+        .attach-btn { font-size: 22px; color: #7C3AED; background: none; border: none; cursor: pointer; }
+        .send-btn {
+            width: 40px; height: 40px; background: linear-gradient(135deg, #7C3AED, #9575CD);
+            color: white; border: none; border-radius: 50%; font-size: 18px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+
+        .watermark {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background: rgba(124,58,237,0.85); color: white; padding: 5px 16px;
+            border-radius: 14px; font-size: 10px; white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="status-bar">
+            <span>۱۲:۳۱</span>
+            <span>📱 FileTransferApp</span>
+            <span>۹۶٪</span>
+        </div>
+        <div class="chat-header">
+            <button class="delete-btn">🗑</button>
+            <div class="avatar">S</div>
+            <div class="chat-info">
+                <div class="chat-name">Samsung Galaxy S24</div>
+                <div class="chat-status active">Online • آماده انتقال</div>
+            </div>
+        </div>
+
+        <div class="messages">
+            <div class="msg-received">
+                سلام! چطوری؟ 👋
+                <div class="msg-time">۱۲:۲۸</div>
+            </div>
+
+            <div class="msg-sent">
+                خوبم ممنون! یه فایل برات دارم
+                <div class="msg-time">۱۲:۲۹</div>
+            </div>
+
+            <div class="msg-received">
+                عالیه، بفرست 😊
+                <div class="msg-time">۱۲:۲۹</div>
+            </div>
+
+            <div class="file-card">
+                <div class="file-content">
+                    <div class="file-icon">📄</div>
+                    <div class="file-details">
+                        <div class="file-name">report-2024.pdf</div>
+                        <div class="file-size">۲.۴ MB</div>
+                    </div>
+                    <div class="file-ext">PDF</div>
+                </div>
+                <div class="progress-section">
+                    <div class="progress-row">
+                        <div class="progress-bar"><div class="progress-fill"></div></div>
+                        <span class="progress-pct">67%</span>
+                    </div>
+                    <div class="speed-info">
+                        <span>⚡ ۸.۲ MB/s</span>
+                        <span>⏱ ۰.۳ ثانیه</span>
+                    </div>
+                    <div class="bytes-info">۱.۶ MB از ۲.۴ MB</div>
+                    <div class="transfer-btns">
+                        <button class="cancel-btn">✖ لغو</button>
+                        <button class="pause-btn">⏸</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="msg-sent" style="opacity: 0.5; font-size: 12px;">
+                در حال ارسال فایل...
+                <div class="msg-time">۱۲:۳۰</div>
+            </div>
+        </div>
+
+        <div class="input-bar">
+            <input class="msg-input" placeholder="پیام خود را بنویسید..." />
+            <button class="attach-btn">📎</button>
+            <button class="send-btn">➤</button>
+        </div>
+
+        <div class="watermark">چت و انتقال فایل</div>
+    </div>
+</body>
+</html>

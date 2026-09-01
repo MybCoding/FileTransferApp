@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:l10n="clr-namespace:FileTransferApp.Services"
+             x:Class="FileTransferApp.PrivacyPolicyPage"
+             Title="{Binding [PrivacyTitle], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#1E1E1E}"
+             Shell.NavBarIsVisible="{OnPlatform Android=True, WinUI=False}">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Back button for Windows -->
+        <Border Grid.Row="0"
+                IsVisible="{OnPlatform WinUI=True, Android=False}"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                StrokeThickness="0"
+                Padding="12,8">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.1" />
+            </Border.Shadow>
+            <Grid ColumnDefinitions="Auto,*">
+                <Button Grid.Column="0"
+                        Text="{Binding [Back], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                        Clicked="OnBackButtonClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}"
+                        FontSize="14"
+                        FontAttributes="Bold"
+                        HeightRequest="40"
+                        Padding="0"
+                        VerticalOptions="Center" />
+            </Grid>
+        </Border>
+
+    <ScrollView Grid.Row="1">
+        <VerticalStackLayout Spacing="16" Padding="20,20">
+
+            <Label Text="{Binding [PrivacyTitle], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}" />
+
+            <Label Text="{Binding [LastUpdated], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#888, Dark=#777}" />
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#444}" />
+
+<Label Text="{Binding [PrivacySection1Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection1Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection2Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection2Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection3Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection3Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection4Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection4Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection5Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection5Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection6Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection6Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding [PrivacySection7Title], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="18" FontAttributes="Bold"
+                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+            <Label FontSize="14" LineBreakMode="WordWrap"
+                   TextColor="{AppThemeBinding Light=#444, Dark=#CCC}">
+                <Label.Text>
+                    <Binding Path="[PrivacySection7Body]" Source="{x:Static l10n:LocalizationResourceManager.Instance}" />
+                </Label.Text>
+            </Label>
+
+            <Label Text="Mostafa.Yazdani65@gmail.com"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   TextColor="#1E88E5"
+                   TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEmailTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <BoxView HeightRequest="1" Color="{AppThemeBinding Light=#E0E0E0, Dark=#444}" Margin="0,8" />
+
+            <Label Text="{Binding [FooterCopyright], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                   FontSize="11"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Light=#999, Dark=#666}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+    </Grid>
+</ContentPage>

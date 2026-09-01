@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot 3 - File Transfer Complete</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0f0f1a; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+        }
+        .phone-frame {
+            width: 380px; height: 780px; background: #f5f5f5;
+            border-radius: 40px; overflow: hidden; position: relative;
+            border: 4px solid #2a2a3e; box-shadow: 0 25px 80px rgba(124,58,237,0.25);
+        }
+        .status-bar {
+            height: 32px; background: #f5f5f5; display: flex; 
+            justify-content: space-between; align-items: center;
+            padding: 0 24px; color: #333; font-size: 12px; font-weight: 600;
+        }
+        .chat-header {
+            background: white; padding: 12px 16px; display: flex; align-items: center;
+            gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .avatar {
+            width: 42px; height: 42px; background: linear-gradient(135deg, #7C3AED, #9575CD);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 18px; font-weight: 700;
+        }
+        .chat-info { flex: 1; }
+        .chat-name { font-size: 15px; font-weight: 700; color: #222; }
+        .chat-status { font-size: 11px; color: #7C3AED; font-weight: 600; }
+        .delete-btn { color: #E53935; font-size: 18px; background: none; border: none; cursor: pointer; }
+
+        .messages { padding: 16px 12px; height: 590px; overflow: hidden; display: flex; flex-direction: column; gap: 8px; }
+
+        .msg-sent {
+            align-self: flex-end; max-width: 70%; background: #7C3AED; color: white;
+            padding: 12px 16px; border-radius: 18px 18px 4px 18px;
+            font-size: 14px; line-height: 1.5;
+        }
+        .msg-received {
+            align-self: flex-start; max-width: 70%; background: white; color: #222;
+            padding: 12px 16px; border-radius: 18px 18px 18px 4px;
+            font-size: 14px; line-height: 1.5; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .msg-time { font-size: 10px; opacity: 0.7; margin-top: 4px; }
+
+        /* Completed file card */
+        .file-card {
+            align-self: flex-end; max-width: 80%; background: white; border-radius: 16px;
+            overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .file-content { display: flex; align-items: center; gap: 10px; padding: 12px; }
+        .file-icon {
+            width: 44px; height: 44px; background: #f0ebff; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 20px;
+            flex-shrink: 0;
+        }
+        .file-details { flex: 1; }
+        .file-name { font-size: 13px; font-weight: 700; color: #222; }
+        .file-size { font-size: 11px; color: #888; margin-top: 2px; }
+        .file-ext {
+            background: #e8f5e9; color: #388e3c; font-size: 9px; font-weight: 700;
+            padding: 3px 7px; border-radius: 10px;
+        }
+        .completed-badge {
+            display: flex; align-items: center; gap: 6px; padding: 0 12px 8px;
+        }
+        .badge {
+            background: #e8f5e9; color: #2e7d32; font-size: 11px; font-weight: 700;
+            padding: 4px 10px; border-radius: 12px;
+        }
+        .file-actions {
+            display: flex; gap: 8px; padding: 0 12px 12px;
+        }
+        .action-btn {
+            font-size: 11px; padding: 6px 12px; border-radius: 14px;
+            border: none; cursor: pointer; font-weight: 600; font-family: inherit;
+        }
+        .open-btn { background: #f3e5f5; color: #7C3AED; }
+        .save-btn { background: #e3f2fd; color: #1976d2; }
+
+        /* Received file */
+        .file-card-received {
+            align-self: flex-start; max-width: 80%; background: white; border-radius: 16px;
+            overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .received-img {
+            width: 100%; height: 140px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 14px 14px 0 0; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 48px;
+        }
+
+        .input-bar {
+            background: white; padding: 10px 12px; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
+        }
+        .msg-input {
+            flex: 1; background: #f0f0f0; border: none; border-radius: 22px;
+            padding: 10px 16px; font-size: 13px; font-family: inherit; outline: none;
+        }
+        .attach-btn { font-size: 22px; color: #7C3AED; background: none; border: none; cursor: pointer; }
+        .send-btn {
+            width: 40px; height: 40px; background: linear-gradient(135deg, #7C3AED, #9575CD);
+            color: white; border: none; border-radius: 50%; font-size: 18px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+        }
+        .watermark {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background: rgba(124,58,237,0.85); color: white; padding: 5px 16px;
+            border-radius: 14px; font-size: 10px; white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="status-bar">
+            <span>۱۲:۳۳</span>
+            <span>📱 FileTransferApp</span>
+            <span>۹۴٪</span>
+        </div>
+        <div class="chat-header">
+            <button class="delete-btn">🗑</button>
+            <div class="avatar">S</div>
+            <div class="chat-info">
+                <div class="chat-name">Samsung Galaxy S24</div>
+                <div class="chat-status">Online • انتقال فعال</div>
+            </div>
+        </div>
+
+        <div class="messages">
+            <div class="msg-sent">
+                عکس‌های سفر رو برات میفرستم 📸
+                <div class="msg-time">۱۲:۳۱</div>
+            </div>
+
+            <!-- Image preview file card -->
+            <div class="file-card-received">
+                <div class="received-img">🏔️</div>
+                <div class="file-content">
+                    <div class="file-icon">🖼️</div>
+                    <div class="file-details">
+                        <div class="file-name">mountain-view.jpg</div>
+                        <div class="file-size">۳.۸ MB</div>
+                    </div>
+                    <div class="file-ext">JPG</div>
+                </div>
+                <div class="completed-badge">
+                    <span class="badge">✓ تکمیل شد</span>
+                </div>
+                <div class="file-actions">
+                    <button class="action-btn open-btn">📂 باز کردن</button>
+                    <button class="action-btn save-btn">💾 ذخیره</button>
+                </div>
+            </div>
+
+            <div class="file-card-received">
+                <div class="file-content">
+                    <div class="file-icon">📸</div>
+                    <div class="file-details">
+                        <div class="file-name">sunset-beach.png</div>
+                        <div class="file-size">۵.۲ MB</div>
+                    </div>
+                    <div class="file-ext">PNG</div>
+                </div>
+                <div class="completed-badge">
+                    <span class="badge">✓ تکمیل شد</span>
+                </div>
+                <div class="file-actions">
+                    <button class="action-btn open-btn">📂 باز کردن</button>
+                    <button class="action-btn save-btn">💾 ذخیره</button>
+                </div>
+            </div>
+
+            <div class="msg-received">
+                ممنون! عکس‌ها عالی هستن 😍
+                <div class="msg-time">۱۲:۳۳</div>
+            </div>
+        </div>
+
+        <div class="input-bar">
+            <input class="msg-input" placeholder="پیام خود را بنویسید..." />
+            <button class="attach-btn">📎</button>
+            <button class="send-btn">➤</button>
+        </div>
+
+        <div class="watermark">دریافت فایل با موفقیت</div>
+    </div>
+</body>
+</html>

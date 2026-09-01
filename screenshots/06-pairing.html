@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot 6 - Pairing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0f0f1a; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+        }
+        .phone-frame {
+            width: 380px; height: 780px; background: #f5f5f5;
+            border-radius: 40px; overflow: hidden; position: relative;
+            border: 4px solid #2a2a3e; box-shadow: 0 25px 80px rgba(124,58,237,0.25);
+        }
+        .status-bar {
+            height: 32px; background: #f5f5f5; display: flex; 
+            justify-content: space-between; align-items: center;
+            padding: 0 24px; color: #333; font-size: 12px; font-weight: 600;
+        }
+        .content { padding: 16px; height: 680px; overflow: hidden; }
+
+        .header { text-align: center; margin-bottom: 18px; }
+        .header h1 { font-size: 24px; font-weight: 700; color: #222; margin-bottom: 4px; }
+        .header p { font-size: 13px; color: #888; }
+        .header-divider { width: 200px; height: 1px; background: #ddd; margin: 12px auto 0; }
+
+        /* System Alert Dialog (DisplayAlert) */
+        .overlay-bg {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4); display: flex; align-items: center;
+            justify-content: center; z-index: 10;
+        }
+        .alert-dialog {
+            background: white; border-radius: 12px; padding: 0;
+            width: 300px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .alert-title {
+            font-size: 17px; font-weight: 700; color: #1a1a1a;
+            padding: 20px 20px 8px; text-align: center;
+        }
+        .alert-message {
+            font-size: 14px; color: #444; line-height: 1.7;
+            padding: 0 20px 16px; text-align: center;
+        }
+        .alert-message .sas-code {
+            font-family: monospace; font-size: 20px; font-weight: 700;
+            color: #7C3AED; background: #f5f0ff; padding: 6px 14px;
+            border-radius: 8px; display: inline-block; margin: 8px 0;
+        }
+        .alert-buttons {
+            display: flex; border-top: 1px solid #e8e8e8;
+        }
+        .alert-btn {
+            flex: 1; padding: 14px; text-align: center;
+            font-size: 15px; font-weight: 600; border: none;
+            background: none; cursor: pointer; font-family: inherit;
+        }
+        .alert-btn:first-child {
+            color: #7C3AED; border-left: 1px solid #e8e8e8;
+        }
+        .alert-btn:last-child {
+            color: #7C3AED; font-weight: 700;
+        }
+        .alert-btn:hover { background: #f5f5f5; }
+
+        .watermark {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background: rgba(124,58,237,0.85); color: white; padding: 5px 16px;
+            border-radius: 14px; font-size: 10px; white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="status-bar">
+            <span>۱۲:۳۵</span>
+            <span>📱 FileTransferApp</span>
+            <span>۸۹٪</span>
+        </div>
+        <div class="content">
+            <div class="header">
+                <h1>Nearby Devices</h1>
+                <p>Tap a device to share files or messages</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="group-header" style="background:#eef2ff;border-radius:12px;padding:10px 14px;margin-bottom:10px;display:flex;gap:8px;align-items:center;">
+                <span style="font-size:13px;font-weight:600;color:#333;">IP: 192.168.1.105 (1)</span>
+            </div>
+
+            <div class="device-card" style="background:white;border-radius:16px;padding:14px;margin-bottom:8px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #f0f0f0;">
+                <div style="flex:1;">
+                    <div style="font-size:17px;font-weight:700;color:#222;">Samsung Galaxy S24</div>
+                    <div style="font-size:12px;color:#999;margin-top:2px;">192.168.1.105</div>
+                    <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+                        <div style="width:8px;height:8px;border-radius:50%;background:#4CAF50;"></div>
+                        <span style="font-size:12px;color:#4CAF50;font-weight:600;">Online</span>
+                    </div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                    <button style="background:#2563EB;color:white;border:none;padding:9px 20px;border-radius:18px;font-size:13px;font-weight:700;">Connect</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DisplayAlert - Pairing Confirmation -->
+        <div class="overlay-bg">
+            <div class="alert-dialog">
+                <div class="alert-title">Confirm pairing</div>
+                <div class="alert-message">
+                    Device: Samsung Galaxy S24 (192.168.1.105)<br><br>
+                    Compare the code shown here with the code on the other device.<br><br>
+                    SAS: <span class="sas-code">8472</span><br><br>
+                    Do the codes match?
+                </div>
+                <div class="alert-buttons">
+                    <button class="alert-btn">No</button>
+                    <button class="alert-btn">Yes, trust this device</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="watermark">جفت‌شدن خودکار دستگاه‌ها</div>
+    </div>
+</body>
+</html>

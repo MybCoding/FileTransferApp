@@ -1,0 +1,50 @@
+## .NET build artifacts
+bin/
+obj/
+*.user
+.vs/
+.vsconfig
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+
+## IDE / OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.userosscache
+*.sln.docstates
+
+## MAUI / platform intermediate outputs (bin keep publish, dist tracked for releases)
+dist/*.idat
+publish/
+
+## Release binaries (kept on disk for GitHub Release, not tracked in git)
+dist/*.apk
+dist/*.zip
+dist/*.exe
+dist/*.idsig
+dist/windows/
+
+## Keystore / secrets (NEVER commit signing keys or passwords)
+keystore/
+*.keystore
+*.jks
+*.pfx
+secrets*.json
+appsettings.*.local.json
+
+## Logs / temp
+*.log
+*.tmp
+opencode/
+Temp/
+
+## Test artifacts / crash dumps
+TestResults/
+*.dmp
+*.hprof
+coverage/

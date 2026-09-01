@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:l10n="clr-namespace:FileTransferApp.Services"
+             x:Class="FileTransferApp.ChatPage"
+             x:Name="ChatPageRoot"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ============ HEADER ============ -->
+        <Border Grid.Row="0"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                StrokeThickness="0"
+                Padding="12,10">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.15" />
+            </Border.Shadow>
+
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+
+                <!-- Back Button -->
+                <Button Grid.Column="0"
+                        Text="⬅"
+                        Clicked="OnBackButtonClicked"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#333333, Dark=#CCCCCC}"
+                        FontSize="22"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        Padding="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Start">
+                    <Button.IsVisible>
+                        <OnPlatform x:TypeArguments="x:Boolean">
+                            <On Platform="WinUI" Value="True" />
+                            <On Platform="Android" Value="False" />
+                        </OnPlatform>
+                    </Button.IsVisible>
+                </Button>
+
+                <!-- Avatar + Info -->
+                <HorizontalStackLayout Grid.Column="1"
+                                       Spacing="10"
+                                       VerticalOptions="Center">
+                    <Border WidthRequest="42" HeightRequest="42"
+                            StrokeThickness="0"
+                            BackgroundColor="{AppThemeBinding Light=#7C3AED, Dark=#9575CD}"
+                            Padding="0">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="21" />
+                        </Border.StrokeShape>
+                        <Label Text="{Binding TargetDevice.InitialLetter}"
+                               TextColor="White"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                    </Border>
+
+                    <VerticalStackLayout Spacing="1" VerticalOptions="Center">
+                        <Label Text="{Binding PageTitle}"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+                        <Label Text="{Binding TargetDevice.StatusDisplay}"
+                               FontSize="11"
+                               TextColor="{AppThemeBinding Light=#888, Dark=#999}"
+                               LineBreakMode="TailTruncation"
+                               MaxLines="1">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label"
+                                             Binding="{Binding TargetDevice.StatusMessage, Converter={StaticResource StringIsNotNullOrEmptyConverter}}"
+                                             Value="True">
+                                    <Setter Property="Text" Value="{Binding TargetDevice.StatusMessage}" />
+                                    <Setter Property="TextColor" Value="#7C3AED" />
+                                    <Setter Property="FontAttributes" Value="Bold" />
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- Cancel All Button -->
+                <Button Grid.Column="2"
+                        Text="🗑"
+                        Command="{Binding CancelAllTransfersCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#E53935, Dark=#EF5350}"
+                        FontSize="20"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        Padding="0"
+                        VerticalOptions="Center"
+                        HorizontalOptions="End" />
+            </Grid>
+        </Border>
+
+        <!-- ============ MESSAGES ============ -->
+        <CollectionView x:Name="MessagesCollection"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Messages}"
+                        SelectionMode="None"
+                        BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid FlowDirection="LeftToRight" Margin="6,3">
+
+                        <Grid HorizontalOptions="{Binding IsMine, Converter={StaticResource BoolToAlignConverter}}"
+                              MaximumWidthRequest="{OnPlatform Android=310, WinUI=480}">
+
+                        <Border StrokeThickness="0"
+                                Padding="0"
+                                BackgroundColor="Transparent">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="18" />
+                            </Border.StrokeShape>
+
+                            <Grid>
+
+                                <!-- ===== FILE MESSAGE ===== -->
+                                <VerticalStackLayout Spacing="0"
+                                                     IsVisible="{Binding IsFile}">
+
+                                    <!-- Image Preview -->
+                                    <Border IsVisible="{Binding HasImagePreview}"
+                                            StrokeThickness="0"
+                                            Padding="0">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="14,14,0,0" />
+                                        </Border.StrokeShape>
+                                        <Image Source="{Binding ImagePreview}"
+                                               HeightRequest="220"
+                                               Aspect="AspectFit" />
+                                    </Border>
+
+                                    <!-- File Card -->
+                                    <Grid Padding="12"
+                                          ColumnDefinitions="Auto,*,Auto"
+                                          ColumnSpacing="10">
+
+                                        <!-- File Icon -->
+                                        <Border Grid.Column="0"
+                                                WidthRequest="44" HeightRequest="44"
+                                                StrokeThickness="0"
+                                                BackgroundColor="{AppThemeBinding Light=#F0EBFF, Dark=#2D2356}"
+                                                Padding="0">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="12" />
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding FileTypeIcon}"
+                                                   FontSize="22"
+                                                   HorizontalOptions="Center"
+                                                   VerticalOptions="Center" />
+                                        </Border>
+
+                                        <!-- File Info -->
+                                        <VerticalStackLayout Grid.Column="1"
+                                                             Spacing="2"
+                                                             VerticalOptions="Center">
+                                            <Label Text="{Binding FileName}"
+                                                   FontSize="13"
+                                                   FontAttributes="Bold"
+                                                   LineBreakMode="TailTruncation"
+                                                   MaxLines="2"
+                                                   TextColor="{AppThemeBinding Light=#222, Dark=#EEE}" />
+                                            <Label Text="{Binding FileSizeDisplay}"
+                                                   FontSize="11"
+                                                   TextColor="{AppThemeBinding Light=#888, Dark=#999}" />
+                                        </VerticalStackLayout>
+
+                                        <!-- File Extension Badge -->
+                                        <Border Grid.Column="2"
+                                                StrokeThickness="0"
+                                                BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B5E20}"
+                                                Padding="6,3"
+                                                VerticalOptions="Center">
+                                            <Border.StrokeShape>
+                                                <RoundRectangle CornerRadius="10" />
+                                            </Border.StrokeShape>
+                                            <Label Text="{Binding FileExtension}"
+                                                   FontSize="9"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{AppThemeBinding Light=#388E3C, Dark=#A5D6A7}" />
+                                        </Border>
+                                    </Grid>
+
+                                    <!-- Transfer Progress -->
+                                    <VerticalStackLayout Spacing="6"
+                                                         Padding="12,0,12,10"
+                                                         IsVisible="{Binding IsTransferring}">
+                                        <!-- Progress Bar + Percent -->
+                                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                            <ProgressBar Grid.Column="0"
+                                                         Progress="{Binding TransferProgress}"
+                                                         ProgressColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}"
+                                                         HeightRequest="6"
+                                                         VerticalOptions="Center" />
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding TransferProgressDisplay}"
+                                                   FontSize="11"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}"
+                                                   VerticalOptions="Center"
+                                                   WidthRequest="36" />
+                                        </Grid>
+
+                                        <!-- Speed + ETA -->
+                                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                            <Label Grid.Column="0"
+                                                   Text="{Binding SpeedDisplay}"
+                                                   FontSize="10"
+                                                   TextColor="{AppThemeBinding Light=#999, Dark=#777}" />
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding EtaDisplay}"
+                                                   FontSize="10"
+                                                   TextColor="{AppThemeBinding Light=#999, Dark=#777}" />
+                                        </Grid>
+
+                                        <!-- Bytes Transferred -->
+                                        <Label Text="{Binding BytesTransferredDisplay}"
+                                               FontSize="10"
+                                               TextColor="{AppThemeBinding Light=#AAA, Dark=#888}"
+                                               HorizontalOptions="Center" />
+
+                                        <!-- Transfer Control Buttons -->
+                                        <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                                            <!-- Cancel -->
+                                            <Button Grid.Column="0"
+                                                    Text="{Binding [CancelTransfer], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                                                    Command="{Binding BindingContext.CancelTransferCommand, Source={x:Reference ChatPageRoot}}"
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="{AppThemeBinding Light=#FFEBEE, Dark=#4A1A1A}"
+                                                    TextColor="{AppThemeBinding Light=#E53935, Dark=#EF5350}"
+                                                    FontSize="12"
+                                                    HeightRequest="32"
+                                                    Padding="10,0"
+                                                    CornerRadius="16" />
+
+                                            <!-- Pause -->
+                                            <Button Grid.Column="1"
+                                                    Text="⏸"
+                                                    Command="{Binding BindingContext.PauseTransferCommand, Source={x:Reference ChatPageRoot}}"
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="{AppThemeBinding Light=#FFF3E0, Dark=#4A3520}"
+                                                    TextColor="{AppThemeBinding Light=#F57C00, Dark=#FFB74D}"
+                                                    FontSize="16"
+                                                    HeightRequest="32"
+                                                    WidthRequest="44"
+                                                    Padding="0"
+                                                    CornerRadius="16"
+                                                    IsVisible="{Binding IsPaused, Converter={StaticResource InvertBoolConverter}}" />
+
+                                            <!-- Resume -->
+                                            <Button Grid.Column="1"
+                                                    Text="▶"
+                                                    Command="{Binding BindingContext.ResumeTransferCommand, Source={x:Reference ChatPageRoot}}"
+                                                    CommandParameter="{Binding .}"
+                                                    BackgroundColor="{AppThemeBinding Light=#E8F5E9, Dark=#1B3A1B}"
+                                                    TextColor="{AppThemeBinding Light=#388E3C, Dark=#81C784}"
+                                                    FontSize="16"
+                                                    HeightRequest="32"
+                                                    WidthRequest="44"
+                                                    Padding="0"
+                                                    CornerRadius="16"
+                                                    IsVisible="{Binding IsPaused}" />
+
+                                            <!-- Status Text -->
+                                            <Label Grid.Column="2"
+                                                   Text="{Binding TransferStatusText}"
+                                                   FontSize="10"
+                                                   TextColor="{AppThemeBinding Light=#999, Dark=#777}"
+                                                   VerticalOptions="Center" />
+                                        </Grid>
+                                    </VerticalStackLayout>
+
+                                    <!-- Completed File Actions -->
+                                    <HorizontalStackLayout Spacing="8"
+                                                           Padding="12,0,12,8">
+                                        <HorizontalStackLayout.Triggers>
+                                            <DataTrigger TargetType="HorizontalStackLayout" Binding="{Binding IsFile}" Value="False">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                            <DataTrigger TargetType="HorizontalStackLayout" Binding="{Binding IsTransferring}" Value="True">
+                                                <Setter Property="IsVisible" Value="False" />
+                                            </DataTrigger>
+                                        </HorizontalStackLayout.Triggers>
+
+                                        <Button Text="{Binding [OpenFile], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                                                FontSize="11"
+                                                Padding="10,5"
+                                                BackgroundColor="{AppThemeBinding Light=#F3E5F5, Dark=#3A1F4A}"
+                                                TextColor="{AppThemeBinding Light=#7C3AED, Dark=#CE93D8}"
+                                                CornerRadius="14"
+                                                HeightRequest="28"
+                                                Command="{Binding BindingContext.OpenFileCommand, Source={x:Reference ChatPageRoot}}"
+                                                CommandParameter="{Binding .}" />
+                                        <Button Text="{Binding [SaveFile], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                                                FontSize="11"
+                                                Padding="10,5"
+                                                BackgroundColor="{AppThemeBinding Light=#E3F2FD, Dark=#1A2A3A}"
+                                                TextColor="{AppThemeBinding Light=#1976D2, Dark=#64B5F6}"
+                                                CornerRadius="14"
+                                                HeightRequest="28"
+                                                Command="{Binding BindingContext.SaveFileCommand, Source={x:Reference ChatPageRoot}}"
+                                                CommandParameter="{Binding .}">
+                                            <Button.Triggers>
+                                                <DataTrigger TargetType="Button" Binding="{Binding IsMine}" Value="True">
+                                                    <Setter Property="IsVisible" Value="False" />
+                                                </DataTrigger>
+                                            </Button.Triggers>
+                                        </Button>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+
+                                <!-- ===== TEXT MESSAGE ===== -->
+                                <Border IsVisible="{Binding IsFile, Converter={StaticResource InvertBoolConverter}}"
+                                        StrokeThickness="0"
+                                        Padding="14,10"
+                                        BackgroundColor="{AppThemeBinding Light=#7C3AED, Dark=#9575CD}">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="18" />
+                                    </Border.StrokeShape>
+
+                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Text}"
+                                               FontSize="15"
+                                               LineBreakMode="WordWrap"
+                                               TextColor="White">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Command="{Binding BindingContext.CopyMessageTextCommand, Source={x:Reference ChatPageRoot}}"
+                                                    CommandParameter="{Binding .}"
+                                                    NumberOfTapsRequired="1" />
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                        <Label Grid.Column="1"
+                                               Text="{Binding TimestampDisplay}"
+                                               FontSize="10"
+                                               VerticalOptions="End"
+                                               TextColor="#CCFFFFFF" />
+                                    </Grid>
+                                </Border>
+
+                                <!-- Timestamp for file messages -->
+                                <Label IsVisible="{Binding IsFile}"
+                                       Text="{Binding TimestampDisplay}"
+                                       FontSize="10"
+                                       HorizontalOptions="End"
+                                       Padding="0,2,14,6"
+                                       TextColor="#AAAAAA" />
+
+                            </Grid>
+                        </Border>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- ============ INPUT AREA ============ -->
+        <Border Grid.Row="2"
+                BackgroundColor="{AppThemeBinding Light=White, Dark=#1E1E1E}"
+                StrokeThickness="0"
+                Padding="8,8">
+            <Border.Shadow>
+                <Shadow Brush="Black" Offset="0,-2" Radius="4" Opacity="0.1" />
+            </Border.Shadow>
+
+            <Grid ColumnDefinitions="*,Auto,Auto,Auto" ColumnSpacing="6">
+
+                <!-- Message Editor -->
+                <Frame Grid.Column="0"
+                       BackgroundColor="{AppThemeBinding Light=#F0F0F0, Dark=#2C2C2C}"
+                       CornerRadius="22"
+                       Padding="14,4"
+                       HasShadow="False"
+                       BorderColor="Transparent"
+                       VerticalOptions="Center">
+                    <Editor x:Name="MessageEditor"
+                            Text="{Binding OutgoingMessage, Mode=TwoWay}"
+                            Placeholder="{Binding [MessagePlaceholder], Source={x:Static l10n:LocalizationResourceManager.Instance}}"
+                            PlaceholderColor="{AppThemeBinding Light=#AAA, Dark=#666}"
+                            AutoSize="TextChanges"
+                            FontSize="14"
+                            BackgroundColor="Transparent"
+                            MaximumHeightRequest="120"
+                            MinimumHeightRequest="40"
+                            VerticalOptions="Center" />
+                </Frame>
+
+                <!-- Attach Button -->
+                <Button Grid.Column="1"
+                        Text="📎"
+                        Command="{Binding PickFileCommand}"
+                        FontSize="22"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}"
+                        WidthRequest="42"
+                        HeightRequest="42"
+                        Padding="0"
+                        CornerRadius="21"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                <!-- Camera Button -->
+                <Button Grid.Column="2"
+                        Text="📷"
+                        Command="{Binding CapturePhotoCommand}"
+                        FontSize="22"
+                        BackgroundColor="Transparent"
+                        TextColor="{AppThemeBinding Light=#7C3AED, Dark=#B39DDB}"
+                        WidthRequest="42"
+                        HeightRequest="42"
+                        Padding="0"
+                        CornerRadius="21"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                <!-- Send Button -->
+                <Button Grid.Column="3"
+                        Text="➤"
+                        Command="{Binding SendCommand}"
+                        FontSize="20"
+                        BackgroundColor="{AppThemeBinding Light=#7C3AED, Dark=#9575CD}"
+                        TextColor="White"
+                        WidthRequest="42"
+                        HeightRequest="42"
+                        Padding="0"
+                        CornerRadius="21"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

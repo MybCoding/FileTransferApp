@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\FileTransferApp\Services\TransferLimits.cs" Link="Shared\TransferLimits.cs" />
+    <Compile Include="..\FileTransferApp\Services\FileSizeValidator.cs" Link="Shared\FileSizeValidator.cs" />
+    <Compile Include="..\FileTransferApp\Services\DiskSpaceValidator.cs" Link="Shared\DiskSpaceValidator.cs" />
+    <Compile Include="..\FileTransferApp\Services\IncomingTransferGuard.cs" Link="Shared\IncomingTransferGuard.cs" />
+    <Compile Include="..\FileTransferApp\Services\TransferTimeout.cs" Link="Shared\TransferTimeout.cs" />
+    <Compile Include="..\FileTransferApp\Services\Crypto.cs" Link="Shared\Crypto.cs" />
+    <Compile Include="..\FileTransferApp\Services\TrustStoreModel.cs" Link="Shared\TrustStoreModel.cs" />
+    <Compile Include="..\FileTransferApp\Services\P2pChannel.cs" Link="Shared\P2pChannel.cs" />
+    <Compile Include="..\FileTransferApp\Services\PairingService.cs" Link="Shared\PairingService.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+﻿Developer: Mostafa Yazdani (مصطفی یزدانی)
+Email: Mostafa.Yazdani65@gmail.com
+App: FileTransferApp
+Version: 1.0.0
