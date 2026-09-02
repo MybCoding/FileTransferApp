@@ -33,6 +33,8 @@ namespace FileTransferApp
         DataMimeType = "*/*")]
     public class MainActivity : MauiAppCompatActivity
     {
+        public const string FileProviderAuthority = "com.yazdani.filetransferapp.fileprovider";
+        public static event Action<int, Result, Intent?>? ActivityResult;
         private WifiManager.MulticastLock _wifiLock; // اضافه شده
 
         protected override void OnCreate(Bundle? savedInstanceState)
@@ -164,6 +166,7 @@ namespace FileTransferApp
             base.OnActivityResult(requestCode, resultCode, data);
             if (requestCode == AndroidFileStorage.RequestCodeSaveFolder)
                 AndroidFileStorage.OnFolderPickerResult(resultCode, data);
+            ActivityResult?.Invoke(requestCode, resultCode, data);
         }
 
         private void HandleIntent(Intent? intent)

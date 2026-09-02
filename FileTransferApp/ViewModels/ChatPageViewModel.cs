@@ -26,6 +26,7 @@ namespace FileTransferApp.ViewModels
 
         public DeviceModel TargetDevice { get; private set; }
         private readonly Page _currentPage;
+        private readonly ICameraCaptureService _cameraCaptureService;
         public ICommand ShowTextActionsCommand { get; }
         public ICommand SendCommand { get; }
         public ICommand PickFileCommand { get; }
@@ -92,8 +93,9 @@ namespace FileTransferApp.ViewModels
 
         private CancellationTokenSource _scrollDebounceCts;
 
-        public ChatPageViewModel(DeviceModel targetDevice, Page currentPage)
+        public ChatPageViewModel(DeviceModel targetDevice, Page currentPage, ICameraCaptureService? cameraCaptureService = null)
         {
+            _cameraCaptureService = cameraCaptureService ?? new CameraCaptureService();
             ShowTextActionsCommand = new AsyncRelayCommand<MessageModel>(ExecuteShowTextActionsCommand);
             TargetDevice = targetDevice ?? throw new ArgumentNullException(nameof(targetDevice));
             _currentPage = currentPage ?? throw new ArgumentNullException(nameof(currentPage));
@@ -203,7 +205,7 @@ namespace FileTransferApp.ViewModels
                 FileResult photo;
                 try
                 {
-                    photo = await MediaPicker.Default.CapturePhotoAsync();
+                    photo = await _cameraCaptureService.CapturePhotoAsync();
                 }
                 catch (FeatureNotSupportedException)
                 {
