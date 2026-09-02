@@ -38,8 +38,8 @@ namespace FileTransferApp.Services
             Preferences.Set(PrefKeyConfigUrl, url.Trim());
         }
 
-        private const string DefaultWindowsInstallerUrl = "https://github.com/MybCoding/FileTransferApp/releases/download/FileTransferApp-v1.1.1/FileTransferApp-Setup-1.1.1.exe";
-        private const string DefaultVersion = "1.1.1";
+        private const string DefaultWindowsInstallerUrl = "https://github.com/MybCoding/FileTransferApp/releases/download/FileTransferApp-v1.1.2/FileTransferApp-Setup-1.1.2.exe";
+        private const string DefaultVersion = "1.1.2";
 
         public static async Task<(string url, string version)> GetWindowsInstallerUrlAsync(CancellationToken ct = default)
         {

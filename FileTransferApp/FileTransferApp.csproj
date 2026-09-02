@@ -21,8 +21,8 @@
     <ApplicationId>com.yazdani.filetransferapp</ApplicationId>
 
     <!-- Versions -->
-    <ApplicationDisplayVersion>1.1.1</ApplicationDisplayVersion>
-    <ApplicationVersion>3</ApplicationVersion>
+    <ApplicationDisplayVersion>1.1.2</ApplicationDisplayVersion>
+    <ApplicationVersion>4</ApplicationVersion>
 
     <!-- OS versions -->
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
